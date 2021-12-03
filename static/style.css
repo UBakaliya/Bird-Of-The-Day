@@ -1,0 +1,30 @@
+body {
+    background: white;
+    /* text-align: center; */
+    
+ }
+
+
+#timer_center{
+    color: purple;
+    text-align: center;
+    
+    
+}
+
+
+#bird_of_the_day{
+
+    background-color: plum;
+    text-align: center;
+
+    }
+#divfolt_img {
+    
+    align-items: right;
+}
+#difolt_info{
+    text-align: left;
+
+
+} 
