@@ -77,7 +77,7 @@ def home():
 def about():
     return render_template('about.html', birdName = birdCommonName,scienceName = birdSeintificName, order = birdOrder, family = birdFamily,)
 if __name__ == "__main__":
-    if   useAPI == False and button_press_cout < 1 :
+    if  useAPI == False and button_press_cout < 1 :
         GPIO.output(17 , False) 
         birdCommonName = 'American Robin'
         birdSeintificName = "Turdus migratorius"
@@ -88,7 +88,7 @@ if __name__ == "__main__":
         # img.save(f"static/img/bird.jpg")   
         
      
-    elif useAPI== True and button_press_cout > 0   : 
+    elif useAPI == True and button_press_cout > 0   : 
          # GPIO.output(17 , True)
          url = "https://ebird.org/species/surprise-me"
         ebirdApiUrl = 'https://api.ebird.org/v2/ref/taxonomy/ebird?species='
