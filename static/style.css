@@ -1,6 +1,6 @@
 body {
-    background: white;
-    /* text-align: center; */
+    background: rgb(70, 154, 138); 
+    text-align: center;
     
  }
 
@@ -20,11 +20,14 @@ body {
 
     }
 #divfolt_img {
-    
-    align-items: right;
+    border: powderblue;
+    border-radius: 50px;
+    align-items:  left;
 }
 #difolt_info{
-    text-align: left;
+    border: rgb(42, 13, 9);
+    border-radius: 50px;
+    text-align: right;
 
 
 } 

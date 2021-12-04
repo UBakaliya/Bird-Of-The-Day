@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html lang="en">
    <head>
     <link rel="stylesheet" href="../static/style.css/">
       <title>{{ title }}</title>
@@ -6,17 +7,29 @@
    <body>
 
     <h1 id = timer_center>{{ time }}</h1>
-    <h1 id = bird_of_the_day> Bird Of The Day </h1>
-    <div id= divfolt_img>
-      <img src="../static/img/bird.jpg" width="400", height="400" >
-    </div>
 
-    <div id = 'difolt_info'> 
-        <h1> Bird Nmae: {{birdName}}</h1>
-        <h1> Siencetific Name: {{birdSeintificName}}</h1>
-        <h1> Bird Order: {{order}}</h1>
-        <h1> Bird Family: {{family}}</h1>
-    </div>
+    <script>
+       let today = new Data ();
+       let monty = today.getMonth();
+       let year = today.getFullYear();
+       let date = today.getDta();
+       let current_data = `${month}/${data}/${year}`;
+
+    </script>
+
+
+
+
+    <h1 id = bird_of_the_day> Bird Of The Day </h1>
+    <form action=" webApp.run()" method="psot">
+      <!-- <img id = divfolt_img src="bird_api_img.jpg" width="400", height="400" > -->
+      <image src = "{{url_for('static',filename = 'bird_api_img.jpg')}}">
+      <div id =difolt_info>
+         <h1> Bird Nmae: {{birdName}}</h1>
+         <h1> Bird Order: {{order}}</h1>
+         <h1> Bird Family: {{family}}</h1>
+      </div>
+   </form>
 
 
    </body>
