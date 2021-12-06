@@ -14,10 +14,10 @@ birdCommonName = ''
 birdSeintificName  = ''
 birdOrder = ''
 birdFamily = ''
-
 height = 10
 width = 10
 button_press_cout = 0 
+img_url= ''
 webApp = Flask(__name__)
 
 
@@ -36,21 +36,14 @@ def home():
     timeString = now.strftime("%Y-%m-%d %H:%M")
     templateData = {
         'title' : 'Bird of the day!',
-        'time': timeString,
-                
-                        
+        'time': timeString,                    
     }
-    return render_template('index.html', **templateData,  birdName = birdCommonName,scienceName = birdSeintificName, order = birdOrder, family = birdFamily)
+    return render_template('index.html', **templateData,  birdName = birdCommonName,scienceName = birdSeintificName, order = birdOrder, family = birdFamily,  bird_img = img_url)
     
-    # if birdCommonName == " ":
-    #     birdCommonName = 'Error Bird'
-        
-    # return render_template('index.html', **templateData, )
-                  
-@webApp.route("/about", methods=['POST'])
+@webApp.route("/about")
 
 def about():
-    return render_template('index.html', birdName = birdCommonName,scienceName = birdSeintificName, order = birdOrder, family = birdFamily, bird_iamge = statci_img)
+    return render_template('about.html', birdName = birdCommonName,scienceName = birdSeintificName, order = birdOrder, family = birdFamily, bird_iamge = statci_img , bird_img = img_url)
 if __name__ == "__main__":
     GPIO.setmode(GPIO.BCM)
     GPIO.setup(17, GPIO.OUT)
@@ -71,7 +64,6 @@ if __name__ == "__main__":
             print('Butto Presssed')
             time.sleep(0.2)
             if button_press_cout > 1 :
-                # useAPI = False 
                 input_state == True
                 GPIO.output(17 , False)
 
@@ -122,6 +114,7 @@ if __name__ == "__main__":
 
                 response = requests.get(googleUrl, params = google_Payload)
                 birdImgLink = extract_link(response.json())
+                
                 headers = {
                     'name': google_Payload['q'],
                     'know_as': birdInfo[14],
@@ -131,15 +124,20 @@ if __name__ == "__main__":
                     'accept':'image'
                 }
                 response = requests.get(birdImgLink, headers)
-            
+                bird_img_url = (response.url)
+                img_url = bird_img_url
+                # webApp.run()        
                 try :
                     img = Image.open(BytesIO(response.content))
-                    img.save(f"static/img/bird_api_img.jpg")
                     
-                    # webApp.run(host='0.0.0.0', port=80, debug=True)
+                    print(img)
+                    img.save(f"static/img/bird_api_img.jpg")
+
+                    
+                    # webApp.run(debug=True)
                     webApp.run()    
 
                     # img = statci_img
                 except Exception as e :
                     print('An excenption occoutre try to get an imag of the bird! not all bird ')
-                    webApp.run()    
+webApp.run()    

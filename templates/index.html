@@ -1,36 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-    <link rel="stylesheet" href="../static/style.css/">
-      <title>{{ title }}</title>
-   </head>
-   <body>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="../static/style.css"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
+    <title>{{title}}</title>
+</head>
+<body>
     <h1 id = timer_center>{{ time }}</h1>
-
-    <script>
-       let today = new Data ();
-       let monty = today.getMonth();
-       let year = today.getFullYear();
-       let date = today.getDta();
-       let current_data = `${month}/${data}/${year}`;
-
-    </script>
-
-
 
 
     <h1 id = bird_of_the_day> Bird Of The Day </h1>
-    <form action=" webApp.run()" method="psot">
-      <!-- <img id = divfolt_img src="bird_api_img.jpg" width="400", height="400" > -->
-      <image src = "{{url_for('static',filename = 'bird_api_img.jpg')}}">
-      <div id =difolt_info>
-         <h1> Bird Nmae: {{birdName}}</h1>
+    <!-- <image src = "{{url_for('static',filename = 'bird_api_img.jpg')}}"> -->
+   
+        <img class="bird-img-class" src="{{bird_img}}" width = 400 , height= 400>
+        <div id =difolt_info>
+         <h1> Bird Name: {{birdName}}</h1>
          <h1> Bird Order: {{order}}</h1>
          <h1> Bird Family: {{family}}</h1>
-      </div>
-   </form>
+    </div>
 
-
-   </body>
+</body>
 </html>
