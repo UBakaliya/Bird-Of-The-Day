@@ -11,3 +11,10 @@ My page custom search link: https://cse.google.com/cse?cx=2899995ddd82e257d
 
 Ebird API link: https://documenter.getpostman.com/view/664302/S1ENwy59
 
+Thing need it For the Raspberry Pi to assess it from the computer are:
+  * Raspberry Pi Imager 
+     -> Plug in the SSD to your computer 
+     -> Create a Password for it then store the data and the thing you will be using the Pi for 
+  * VNC Viewer (Turn On when you want to connect it with the Pi)
+  * VSCODE (below in Vscode there is button to connect the pi with from computer)
+  
